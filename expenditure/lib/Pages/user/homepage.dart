@@ -4,7 +4,20 @@ import 'new_request.dart';
 import 'request_details.dart';
 
 class Homepage extends StatelessWidget {
-  const Homepage({Key? key}) : super(key: key);
+  Homepage({Key? key}) : super(key: key);
+
+  @override
+  // _HomepageState createState() => _HomepageState();
+
+  int _selectedPage = 0;
+  PageController pageController = PageController();
+
+  // void onTapped(int index) {
+  //   setState(() {
+  //     _selectedPage = index;
+  //   });
+  //   PageController.jumpToPage(index);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -64,6 +77,21 @@ class Homepage extends StatelessWidget {
               ],
             ),
           ),
+
+          PageView(
+            controller: pageController,
+          ),
+          BottomNavigationBar(
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.history), label: 'History'),
+              BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+            ],
+            currentIndex: _selectedPage,
+            selectedItemColor: Colors.white,
+            unselectedItemColor: Colors.grey,
+          ),
           //list of requests
           Container(
             width: MediaQuery.of(context).size.width,
@@ -76,6 +104,9 @@ class Homepage extends StatelessWidget {
                   'MY REQUESTS',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                 ),
+
+                //listbuilder
+                //ListView.builder(itemBuilder: )
               ],
             ),
           )

@@ -73,6 +73,8 @@ class Login extends StatelessWidget {
         );
     } */
 
-    return Scaffold();
+    return Scaffold(
+      body: Column(),
+    );
   }
 }

@@ -54,7 +54,7 @@ class NewRequest extends StatelessWidget {
                   child: const Text('Make Request',
                       style: TextStyle(fontSize: 18)),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 55,
                 ),
                 ElevatedButton(
