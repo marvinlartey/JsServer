@@ -37,88 +37,96 @@ class _HomepageState extends State<Homepage> {
         ),
         body: PageView(controller: pageController, children: [
           SingleChildScrollView(
-            child: Container(
-              color: const Color.fromRGBO(224, 224, 224, 1),
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              child: Column(
-                children: [
-                  //Profile picture
-                  const Padding(
-                    padding: EdgeInsets.fromLTRB(0, 0, 0, 15),
-                    child: CircleAvatar(
-                      radius: 50,
-                      backgroundImage: AssetImage("assets/images/dp5.jpg"),
-                    ),
-                  ),
-                  //username
-                  const Text(
-                    'John Doe',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
-                  ),
-
-                  //New request button
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          primary: Colors.orange.shade300,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(44))),
-                      onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const NewRequest(),
-                        ));
-                      },
-                      child: const Text(
-                        'Create New Request',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w600),
+            child: ConstrainedBox(
+              constraints:
+                  BoxConstraints(maxHeight: MediaQuery.of(context).size.height),
+              child: Container(
+                color: const Color.fromRGBO(224, 224, 224, 1),
+                width: MediaQuery.of(context).size.width,
+                //height: MediaQuery.of(context).size.height,
+                child: Column(
+                  children: [
+                    //Profile picture
+                    const Padding(
+                      padding: EdgeInsets.fromLTRB(0, 0, 0, 15),
+                      child: CircleAvatar(
+                        radius: 50,
+                        backgroundImage: AssetImage("assets/images/dp5.jpg"),
                       ),
                     ),
-                  ),
-                  //list of requests
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height * 0.58,
-                    padding: const EdgeInsets.fromLTRB(0, 11, 0, 0),
-                    color: const Color.fromRGBO(232, 232, 230, 1),
-                    child: Column(
-                      children: [
-                        const Text(
-                          'MY REQUESTS',
+                    //username
+                    const Text(
+                      'John Doe',
+                      style:
+                          TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+                    ),
+
+                    //New request button
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            primary: Colors.orange.shade300,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(44))),
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const NewRequest(),
+                          ));
+                        },
+                        child: const Text(
+                          'Create New Request',
                           style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.w600),
                         ),
-                        ConstrainedBox(
-                          constraints: BoxConstraints(
-                              maxHeight:
-                                  MediaQuery.of(context).size.width * 0.3),
-                          child: ListView.builder(
-                              itemCount: 5,
-                              itemBuilder: (BuildContext context, int index) {
-                                return ListTile(
-                                  leading: const Icon(Icons.list),
-                                  trailing: const Text(
-                                    "GFG",
-                                    style: TextStyle(
-                                        color: Colors.green, fontSize: 15),
-                                  ),
-                                  title: Text("List item $index"),
-                                  onTap: () {
-                                    Navigator.of(context)
-                                        .push(MaterialPageRoute(
-                                      builder: (context) =>
-                                          const RequestDetails(),
-                                    ));
-                                  },
-                                );
-                              }),
-                        ),
-                      ],
+                      ),
                     ),
-                  ),
-                ],
+                    //list of requests
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      //height: MediaQuery.of(context).size.height * 0.58,
+                      padding: const EdgeInsets.fromLTRB(5, 11, 5, 0),
+                      color: const Color.fromRGBO(232, 232, 230, 1),
+                      child: Column(
+                        children: [
+                          const Text(
+                            'MY REQUESTS',
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.w600),
+                          ),
+                          ConstrainedBox(
+                            constraints: BoxConstraints(
+                                maxHeight:
+                                    MediaQuery.of(context).size.height * 0.57),
+                            child: ListView.builder(
+                                itemCount: 15,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return ListTile(
+                                    leading: const Icon(
+                                      Icons.monetization_on,
+                                      color: Colors.green,
+                                    ),
+                                    trailing: const Text(
+                                      "GHc 500",
+                                      style: TextStyle(
+                                          color: Colors.green, fontSize: 15),
+                                    ),
+                                    title: Text("List item $index"),
+                                    onTap: () {
+                                      Navigator.of(context)
+                                          .push(MaterialPageRoute(
+                                        builder: (context) =>
+                                            const RequestDetails(),
+                                      ));
+                                    },
+                                  );
+                                }),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

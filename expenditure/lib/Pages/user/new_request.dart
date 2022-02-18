@@ -59,7 +59,7 @@ class NewRequest extends StatelessWidget {
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      primary: Colors.orange[300],
+                      primary: Colors.red[400],
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(55))),
                   onPressed: Navigator.of(context).pop,
