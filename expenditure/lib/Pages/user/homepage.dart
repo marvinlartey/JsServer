@@ -132,15 +132,24 @@ class _HomepageState extends State<Homepage> {
           ),
           Container(
             child: ListView.builder(
-                itemCount: 5,
+                itemCount: 15,
                 itemBuilder: (BuildContext context, int index) {
                   return ListTile(
-                      leading: const Icon(Icons.list),
-                      trailing: const Text(
-                        "GFG",
-                        style: TextStyle(color: Colors.green, fontSize: 15),
-                      ),
-                      title: Text("List item $index"));
+                    leading: const Icon(
+                      Icons.monetization_on,
+                      color: Colors.green,
+                    ),
+                    trailing: const Text(
+                      "GHc",
+                      style: TextStyle(color: Colors.green, fontSize: 15),
+                    ),
+                    title: Text("List item $index"),
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const RequestDetails(),
+                      ));
+                    },
+                  );
                 }), /* Archive here */
           ),
         ]),
